@@ -23,9 +23,7 @@ jobs:
           service_account: github-gcs-sync-892@cliprojectdemo.iam.gserviceaccount.com
 
       - uses: google-github-actions/setup-gcloud@v3
-      - name: Test bucket access
+      - name: Deploy to GCS
         run: |
-          gcloud auth list
-          gcloud storage buckets describe gs://punya-web-bucket-1234
-          gcloud storage ls gs://punya-web-bucket-1234
+            gcloud storage rsync ./my-website gs://punya-web-bucket-1234 --recursive --delete-unmatched-destination-objects
      
