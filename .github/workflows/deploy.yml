@@ -27,6 +27,6 @@ jobs:
       - name: Deploy website to GCS
         run: |
           ls -larth
-          gcloud storage rsync . gs://punya-web-bucket-1234/my-website \
+          gcloud storage rsync index.html gs://punya-web-bucket-1234/my-website \
             --recursive \
             --delete-unmatched-destination-objects
