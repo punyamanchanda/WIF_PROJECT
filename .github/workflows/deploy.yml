@@ -23,7 +23,8 @@ jobs:
           service_account: github-gcs-sync-892@cliprojectdemo.iam.gserviceaccount.com
 
       - uses: google-github-actions/setup-gcloud@v3
-
-      - name: Deploy to GCS
+      - name: Show active account
         run: |
-          gcloud storage rsync . gs://punya-web-bucket-1234 --recursive --delete-unmatched-destination-objects
+            gcloud auth list
+            gcloud config list
+     
